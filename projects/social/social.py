@@ -2,6 +2,21 @@ class User:
     def __init__(self, name):
         self.name = name
 
+
+def get_all_social_paths(user_id):
+    """
+    Takes a user's user_id as an argument
+
+    Returns a dictionary containing every user in that user's
+    extended network with the shortest friendship path between them.
+
+    The key is the friend's ID and the value is the path.
+    """
+    visited = {}  # Note that this is a dictionary, not a set
+    # !!!! IMPLEMENT ME
+    return visited
+
+
 class SocialGraph:
     def __init__(self):
         self.last_id = 0
@@ -48,23 +63,10 @@ class SocialGraph:
 
         # Create friendships
 
-    def get_all_social_paths(self, user_id):
-        """
-        Takes a user's user_id as an argument
-
-        Returns a dictionary containing every user in that user's
-        extended network with the shortest friendship path between them.
-
-        The key is the friend's ID and the value is the path.
-        """
-        visited = {}  # Note that this is a dictionary, not a set
-        # !!!! IMPLEMENT ME
-        return visited
-
 
 if __name__ == '__main__':
     sg = SocialGraph()
     sg.populate_graph(10, 2)
     print(sg.friendships)
-    connections = sg.get_all_social_paths(1)
+    connections = get_all_social_paths(1)
     print(connections)
